@@ -90,7 +90,7 @@ namespace inner {
         QString encoders_str = s.mid(begin, length);
 
         // split encoder_str into encoder names and skip whitespaces
-        QStringList encoders = encoders_str.split(' ', QString::SkipEmptyParts);
+        QStringList encoders = encoders_str.split(' ', Qt::SkipEmptyParts);
         foreach (QString s, encoders) {
             target.push_back(s); // fill codec names into the list
         }
@@ -433,7 +433,7 @@ QStringList FFmpegInterface::Private::getOptionList(const ConversionParameters &
     /* ==== Additional Options ==== */
     if (!o.ffmpeg_options.isEmpty()) {
         QList<QString> additional_options =
-                o.ffmpeg_options.split(" ", QString::SkipEmptyParts);
+                o.ffmpeg_options.split(" ", Qt::SkipEmptyParts);
         foreach (QString opt, additional_options)
             list.append(opt);
     }
